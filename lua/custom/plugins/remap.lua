@@ -15,6 +15,12 @@ return {
   -- Telescope
   vim.keymap.set('n', '<leader>ff', '<CMD>Telescope find_files<CR>', { desc = 'Find Files' }),
   vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Open Undo Tree' }),
+  -- Telescop Custom Command to look up packages
+  vim.keymap.set('n', '<leader>ep', function()
+    require('telescope.builtin').find_files {
+      cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
+    }
+  end),
 
   vim.keymap.set('i', '<C-c>', '<Esc>'),
   vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv"),
@@ -32,6 +38,6 @@ return {
   vim.keymap.set('x', '<leader>p', '"_dP'),
 
   -- next greatest remap
-  vim.keymap.set('n', '<leader>pv', ':Ex<CR>'),
+  vim.keymap.set('n', '<leader>pv', '<CMD>Oil<CR>', { desc = 'Open parent directory' }),
   vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'New Tmux Sessionizer' }),
 }

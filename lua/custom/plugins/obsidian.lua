@@ -20,4 +20,8 @@ return {
     },
     -- Additional configuration options can be added here
   },
+
+  ui = {
+    enable = true,
+  },
 }
