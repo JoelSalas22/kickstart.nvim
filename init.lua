@@ -103,6 +103,15 @@ vim.keymap.set('n', '<leader>tt', function()
   vim.api.nvim_win_set_height(0, 15)
 end)
 
+-- If you want to use "~", you need to prefix the vault path with vim.fn.expand "~"
+local vault_location = '~/Obsidian/ObsidianSync/**.md'
+local group = vim.api.nvim_create_augroup('obsidian_cmds', { clear = true })
+vim.api.nvim_create_autocmd('BufAdd', {
+  command = 'ObsidianOpen',
+  pattern = { vim.fn.expand(vault_location) },
+  group = group,
+  desc = 'Opens the current buffer in Obsidian',
+})
 -- NOTE: Custom Key Maps for Vim Tmux Navigator
 
 --  NOTE: Custom Keys from ThePrimeagen below

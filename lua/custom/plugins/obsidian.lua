@@ -16,7 +16,7 @@ return {
   },
   opts = {
     workspaces = {
-      { name = 'ObsidianSync', path = '/Volumes/JoeysExternalHard/ObsidianSync' },
+      { name = 'ObsidianSync', path = '~/Obsidian/ObsidianSync' },
     },
     -- Additional configuration options can be added here
   },
